@@ -32,19 +32,57 @@ public class CircuitSimulatorGUI extends javax.swing.JFrame {
         jFrame1 = new javax.swing.JFrame();
         jFrame2 = new javax.swing.JFrame();
         mainWindow = new javax.swing.JPanel();
-        circuitImageMultiLoop = new javax.swing.JLabel();
         circuitName = new javax.swing.JLabel();
         status = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        parallelInSeriesImage = new javax.swing.JLabel();
+        multiLoopImage = new javax.swing.JLabel();
+        parallelImage = new javax.swing.JLabel();
+        seriesImage = new javax.swing.JLabel();
         inputWindow = new javax.swing.JPanel();
+        multiLoopInputInfo = new javax.swing.JPanel();
+        numberOfResistorsTitleA2 = new javax.swing.JLabel();
+        resistancePerResistorTitleA3 = new javax.swing.JLabel();
+        numberOfResistorsInputA2 = new javax.swing.JTextField();
+        resistancePerResistorInputA2 = new javax.swing.JTextField();
+        numberOfResistorsTitleB1 = new javax.swing.JLabel();
+        resistancePerResistorTitleB1 = new javax.swing.JLabel();
+        resistancePerResistorInputB1 = new javax.swing.JTextField();
+        numberOfResistorsInputB1 = new javax.swing.JTextField();
+        numberOfResistorsTitleC1 = new javax.swing.JLabel();
+        resistancePerResistorTitleC1 = new javax.swing.JLabel();
+        resistancePerResistorInputC1 = new javax.swing.JTextField();
+        numberOfResistorsInputC1 = new javax.swing.JTextField();
+        numberOfResistorsTitleD = new javax.swing.JLabel();
+        resistancePerResistorTitleD = new javax.swing.JLabel();
+        resistancePerResistorInputD = new javax.swing.JTextField();
+        numberOfResistorsInputD = new javax.swing.JTextField();
+        parallelInSeriesInputInfo = new javax.swing.JPanel();
+        numberOfResistorsTitleA1 = new javax.swing.JLabel();
+        resistancePerResistorTitleA1 = new javax.swing.JLabel();
+        numberOfResistorsInputA1 = new javax.swing.JTextField();
+        resistancePerResistorInputA1 = new javax.swing.JTextField();
+        numberOfResistorsTitleC = new javax.swing.JLabel();
+        resistancePerResistorTitleC = new javax.swing.JLabel();
+        resistancePerResistorInputC = new javax.swing.JTextField();
+        numberOfResistorsInputC = new javax.swing.JTextField();
         seriesInputInfo = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        numberOfResistorsInput1 = new javax.swing.JTextField();
+        resistancePerResistorInput1 = new javax.swing.JTextField();
+        parallelInputInfo = new javax.swing.JPanel();
+        numberOfResistorsTitleA = new javax.swing.JLabel();
+        resistancePerResistorTitleA = new javax.swing.JLabel();
+        numberOfResistorsInputA = new javax.swing.JTextField();
+        resistancePerResistorInputA = new javax.swing.JTextField();
+        numberOfResistorsTitleB = new javax.swing.JLabel();
+        resistancePerResistorTitleB = new javax.swing.JLabel();
+        resistancePerResistorInputB = new javax.swing.JTextField();
+        numberOfResistorsInputB = new javax.swing.JTextField();
+        numberOfBatteriesLabel = new javax.swing.JLabel();
+        voltagePerBatteryLabel = new javax.swing.JLabel();
+        numberOfBatteriesInput = new javax.swing.JTextField();
+        voltagePerBatteryInput = new javax.swing.JTextField();
         CircuitSelectorPanel = new javax.swing.JPanel();
         jComboBox1 = new javax.swing.JComboBox();
         outputWindow = new javax.swing.JPanel();
@@ -58,8 +96,8 @@ public class CircuitSimulatorGUI extends javax.swing.JFrame {
         outputVoltC = new javax.swing.JTextField();
         outputVoltD = new javax.swing.JTextField();
         outputVoltTotal = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        resistanceTitleA = new javax.swing.JLabel();
+        resistanceTitleB = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -109,77 +147,211 @@ public class CircuitSimulatorGUI extends javax.swing.JFrame {
 
         mainWindow.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        circuitImageMultiLoop.setBackground(java.awt.Color.white);
-        circuitImageMultiLoop.setIcon(new javax.swing.ImageIcon(getClass().getResource("/circuitsimulator/multiloop.png"))); // NOI18N
-        mainWindow.add(circuitImageMultiLoop, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 412, 286));
-
         circuitName.setText("Circuit: [.......]");
         mainWindow.add(circuitName, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 6, -1, -1));
 
         status.setText("Status: [......]");
         mainWindow.add(status, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 28, -1, -1));
 
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/circuitsimulator/parallelinseries.png"))); // NOI18N
-        jLabel12.setText("jLabel12");
-        mainWindow.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 400, 290));
+        parallelInSeriesImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/circuitsimulator/parallelinseries.png"))); // NOI18N
+        parallelInSeriesImage.setText("jLabel12");
+        mainWindow.add(parallelInSeriesImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 400, 290));
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/circuitsimulator/parallel.png"))); // NOI18N
-        mainWindow.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 400, 290));
+        multiLoopImage.setBackground(java.awt.Color.white);
+        multiLoopImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/circuitsimulator/multiloop.png"))); // NOI18N
+        mainWindow.add(multiLoopImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 412, 286));
 
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/circuitsimulator/series.png"))); // NOI18N
-        mainWindow.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, 290));
+        parallelImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/circuitsimulator/parallel.png"))); // NOI18N
+        mainWindow.add(parallelImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 400, 290));
+
+        seriesImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/circuitsimulator/series.png"))); // NOI18N
+        mainWindow.add(seriesImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, 290));
 
         inputWindow.setBorder(javax.swing.BorderFactory.createTitledBorder("Input Information"));
         inputWindow.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.setText("jTextField1");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        multiLoopInputInfo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        numberOfResistorsTitleA2.setText("Number of resistors (A):");
+        multiLoopInputInfo.add(numberOfResistorsTitleA2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 172, -1));
+
+        resistancePerResistorTitleA3.setText("Resistance per resistor (A): ");
+        multiLoopInputInfo.add(resistancePerResistorTitleA3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 32, 180, -1));
+
+        numberOfResistorsInputA2.setText("jTextField7");
+        numberOfResistorsInputA2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                numberOfResistorsInputA2ActionPerformed(evt);
             }
         });
+        multiLoopInputInfo.add(numberOfResistorsInputA2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 50, 20));
 
-        jTextField2.setText("jTextField2");
+        resistancePerResistorInputA2.setText("jTextField7");
+        multiLoopInputInfo.add(resistancePerResistorInputA2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 50, 20));
 
-        jTextField3.setText("jTextField3");
+        numberOfResistorsTitleB1.setText("Number of resistors (B):");
+        multiLoopInputInfo.add(numberOfResistorsTitleB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 172, -1));
 
-        jTextField4.setText("jTextField4");
+        resistancePerResistorTitleB1.setText("Resistance per resistor (B): ");
+        multiLoopInputInfo.add(resistancePerResistorTitleB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 180, -1));
 
-        jTextField5.setText("jTextField5");
+        resistancePerResistorInputB1.setText("jTextField7");
+        multiLoopInputInfo.add(resistancePerResistorInputB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 50, 20));
 
-        javax.swing.GroupLayout seriesInputInfoLayout = new javax.swing.GroupLayout(seriesInputInfo);
-        seriesInputInfo.setLayout(seriesInputInfoLayout);
-        seriesInputInfoLayout.setHorizontalGroup(
-            seriesInputInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, seriesInputInfoLayout.createSequentialGroup()
-                .addContainerGap(195, Short.MAX_VALUE)
-                .addGroup(seriesInputInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
-        seriesInputInfoLayout.setVerticalGroup(
-            seriesInputInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(seriesInputInfoLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
-        );
+        numberOfResistorsInputB1.setText("jTextField7");
+        numberOfResistorsInputB1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numberOfResistorsInputB1ActionPerformed1(evt);
+            }
+        });
+        multiLoopInputInfo.add(numberOfResistorsInputB1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 50, 20));
 
-        inputWindow.add(seriesInputInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 250, 230));
+        numberOfResistorsTitleC1.setText("Number of resistors (C):");
+        multiLoopInputInfo.add(numberOfResistorsTitleC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 172, -1));
 
-        mainWindow.add(inputWindow, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, 270, 280));
+        resistancePerResistorTitleC1.setText("Resistance per resistor (C): ");
+        multiLoopInputInfo.add(resistancePerResistorTitleC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 180, -1));
+
+        resistancePerResistorInputC1.setText("jTextField7");
+        multiLoopInputInfo.add(resistancePerResistorInputC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 50, 20));
+
+        numberOfResistorsInputC1.setText("jTextField7");
+        numberOfResistorsInputC1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numberOfResistorsInputC1numberOfResistorsInputB1ActionPerformed(evt);
+            }
+        });
+        multiLoopInputInfo.add(numberOfResistorsInputC1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 50, 20));
+
+        numberOfResistorsTitleD.setText("Number of resistors (D):");
+        multiLoopInputInfo.add(numberOfResistorsTitleD, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 172, -1));
+
+        resistancePerResistorTitleD.setText("Resistance per resistor (D): ");
+        multiLoopInputInfo.add(resistancePerResistorTitleD, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 180, -1));
+
+        resistancePerResistorInputD.setText("jTextField7");
+        multiLoopInputInfo.add(resistancePerResistorInputD, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 50, 20));
+
+        numberOfResistorsInputD.setText("jTextField7");
+        numberOfResistorsInputD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numberOfResistorsInputDActionPerformed(evt);
+            }
+        });
+        multiLoopInputInfo.add(numberOfResistorsInputD, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, 50, 20));
+
+        inputWindow.add(multiLoopInputInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, 220));
+
+        parallelInSeriesInputInfo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        numberOfResistorsTitleA1.setText("Number of resistors (A):");
+        parallelInSeriesInputInfo.add(numberOfResistorsTitleA1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 172, -1));
+
+        resistancePerResistorTitleA1.setText("Resistance per resistor (A): ");
+        parallelInSeriesInputInfo.add(resistancePerResistorTitleA1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 32, 180, -1));
+
+        numberOfResistorsInputA1.setText("jTextField7");
+        numberOfResistorsInputA1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numberOfResistorsInputA1ActionPerformed(evt);
+            }
+        });
+        parallelInSeriesInputInfo.add(numberOfResistorsInputA1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 50, 20));
+
+        resistancePerResistorInputA1.setText("jTextField7");
+        parallelInSeriesInputInfo.add(resistancePerResistorInputA1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 50, 20));
+
+        numberOfResistorsTitleC.setText("Number of resistors (C):");
+        parallelInSeriesInputInfo.add(numberOfResistorsTitleC, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 172, -1));
+
+        resistancePerResistorTitleC.setText("Resistance per resistor (C): ");
+        parallelInSeriesInputInfo.add(resistancePerResistorTitleC, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 180, -1));
+
+        resistancePerResistorInputC.setText("jTextField7");
+        parallelInSeriesInputInfo.add(resistancePerResistorInputC, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 50, 20));
+
+        numberOfResistorsInputC.setText("jTextField7");
+        numberOfResistorsInputC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numberOfResistorsInputCnumberOfResistorsInputB1ActionPerformed(evt);
+            }
+        });
+        parallelInSeriesInputInfo.add(numberOfResistorsInputC, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 50, 20));
+
+        inputWindow.add(parallelInSeriesInputInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, 220));
+
+        seriesInputInfo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel3.setText("Number of resistors: ");
+        seriesInputInfo.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 172, -1));
+
+        jLabel4.setText("Resistance per resistor: ");
+        seriesInputInfo.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 32, 163, -1));
+
+        numberOfResistorsInput1.setText("jTextField7");
+        numberOfResistorsInput1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numberOfResistorsInput1ActionPerformed(evt);
+            }
+        });
+        seriesInputInfo.add(numberOfResistorsInput1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 50, 20));
+
+        resistancePerResistorInput1.setText("jTextField7");
+        seriesInputInfo.add(resistancePerResistorInput1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 50, 20));
+
+        inputWindow.add(seriesInputInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, 220));
+
+        parallelInputInfo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        numberOfResistorsTitleA.setText("Number of resistors (A):");
+        parallelInputInfo.add(numberOfResistorsTitleA, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 172, -1));
+
+        resistancePerResistorTitleA.setText("Resistance per resistor (A): ");
+        parallelInputInfo.add(resistancePerResistorTitleA, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 32, 180, -1));
+
+        numberOfResistorsInputA.setText("jTextField7");
+        numberOfResistorsInputA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numberOfResistorsInputAActionPerformed(evt);
+            }
+        });
+        parallelInputInfo.add(numberOfResistorsInputA, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 50, 20));
+
+        resistancePerResistorInputA.setText("jTextField7");
+        parallelInputInfo.add(resistancePerResistorInputA, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 50, 20));
+
+        numberOfResistorsTitleB.setText("Number of resistors (B):");
+        parallelInputInfo.add(numberOfResistorsTitleB, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 172, -1));
+
+        resistancePerResistorTitleB.setText("Resistance per resistor (B): ");
+        parallelInputInfo.add(resistancePerResistorTitleB, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 180, -1));
+
+        resistancePerResistorInputB.setText("jTextField7");
+        parallelInputInfo.add(resistancePerResistorInputB, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 50, 20));
+
+        numberOfResistorsInputB.setText("jTextField7");
+        numberOfResistorsInputB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                numberOfResistorsInputBActionPerformed(evt);
+            }
+        });
+        parallelInputInfo.add(numberOfResistorsInputB, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 50, 20));
+
+        inputWindow.add(parallelInputInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, 220));
+
+        numberOfBatteriesLabel.setText("Number of batteries:");
+        inputWindow.add(numberOfBatteriesLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        voltagePerBatteryLabel.setText("Emf per battery: ");
+        inputWindow.add(voltagePerBatteryLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
+
+        numberOfBatteriesInput.setText("jTextField6");
+        inputWindow.add(numberOfBatteriesInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, 50, 20));
+
+        voltagePerBatteryInput.setText("jTextField7");
+        inputWindow.add(voltagePerBatteryInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 50, 20));
+
+        mainWindow.add(inputWindow, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, 270, 290));
 
         CircuitSelectorPanel.setBorder(javax.swing.BorderFactory.createTitledBorder("Circuit Selection"));
 
@@ -236,11 +408,11 @@ public class CircuitSimulatorGUI extends javax.swing.JFrame {
         outputVoltTotal.setText("jTextField6");
         outputWindow.add(outputVoltTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, -1, -1));
 
-        jLabel1.setText("Resistance (A): ");
-        outputWindow.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, -1, 20));
+        resistanceTitleA.setText("Resistance (A): ");
+        outputWindow.add(resistanceTitleA, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, -1, 20));
 
-        jLabel9.setText("Resistance (B):");
-        outputWindow.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, -1, -1));
+        resistanceTitleB.setText("Resistance (B):");
+        outputWindow.add(resistanceTitleB, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -258,19 +430,52 @@ public class CircuitSimulatorGUI extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(mainWindow, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(outputWindow, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(outputWindow, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void numberOfResistorsInputA2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberOfResistorsInputA2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_numberOfResistorsInputA2ActionPerformed
+
+    private void numberOfResistorsInputB1ActionPerformed1(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberOfResistorsInputB1ActionPerformed1
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numberOfResistorsInputB1ActionPerformed1
+
+    private void numberOfResistorsInputC1numberOfResistorsInputB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberOfResistorsInputC1numberOfResistorsInputB1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numberOfResistorsInputC1numberOfResistorsInputB1ActionPerformed
+
+    private void numberOfResistorsInputDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberOfResistorsInputDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numberOfResistorsInputDActionPerformed
+
+    private void numberOfResistorsInputA1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberOfResistorsInputA1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numberOfResistorsInputA1ActionPerformed
+
+    private void numberOfResistorsInputCnumberOfResistorsInputB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberOfResistorsInputCnumberOfResistorsInputB1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numberOfResistorsInputCnumberOfResistorsInputB1ActionPerformed
+
+    private void numberOfResistorsInput1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberOfResistorsInput1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numberOfResistorsInput1ActionPerformed
+
+    private void numberOfResistorsInputAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberOfResistorsInputAActionPerformed
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numberOfResistorsInputAActionPerformed
+
+    private void numberOfResistorsInputBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numberOfResistorsInputBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numberOfResistorsInputBActionPerformed
 
     /**
      * @param args the command line arguments
@@ -330,32 +535,70 @@ public class CircuitSimulatorGUI extends javax.swing.JFrame {
     private javax.swing.JLabel battVoltTitleC;
     private javax.swing.JLabel battVoltTitleD;
     private javax.swing.JLabel battVoltTitleTotal;
-    private javax.swing.JLabel circuitImageMultiLoop;
     private javax.swing.JLabel circuitName;
     private javax.swing.JPanel inputWindow;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JFrame jFrame2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JPanel mainWindow;
+    private javax.swing.JLabel multiLoopImage;
+    private javax.swing.JPanel multiLoopInputInfo;
+    private javax.swing.JTextField numberOfBatteriesInput;
+    private javax.swing.JLabel numberOfBatteriesLabel;
+    private javax.swing.JTextField numberOfResistorsInput1;
+    private javax.swing.JTextField numberOfResistorsInputA;
+    private javax.swing.JTextField numberOfResistorsInputA1;
+    private javax.swing.JTextField numberOfResistorsInputA2;
+    private javax.swing.JTextField numberOfResistorsInputB;
+    private javax.swing.JTextField numberOfResistorsInputB1;
+    private javax.swing.JTextField numberOfResistorsInputC;
+    private javax.swing.JTextField numberOfResistorsInputC1;
+    private javax.swing.JTextField numberOfResistorsInputD;
+    private javax.swing.JLabel numberOfResistorsTitleA;
+    private javax.swing.JLabel numberOfResistorsTitleA1;
+    private javax.swing.JLabel numberOfResistorsTitleA2;
+    private javax.swing.JLabel numberOfResistorsTitleB;
+    private javax.swing.JLabel numberOfResistorsTitleB1;
+    private javax.swing.JLabel numberOfResistorsTitleC;
+    private javax.swing.JLabel numberOfResistorsTitleC1;
+    private javax.swing.JLabel numberOfResistorsTitleD;
     private javax.swing.JTextField outputVoltA;
     private javax.swing.JTextField outputVoltB;
     private javax.swing.JTextField outputVoltC;
     private javax.swing.JTextField outputVoltD;
     private javax.swing.JTextField outputVoltTotal;
     private javax.swing.JPanel outputWindow;
+    private javax.swing.JLabel parallelImage;
+    private javax.swing.JLabel parallelInSeriesImage;
+    private javax.swing.JPanel parallelInSeriesInputInfo;
+    private javax.swing.JPanel parallelInputInfo;
+    private javax.swing.JTextField resistancePerResistorInput1;
+    private javax.swing.JTextField resistancePerResistorInputA;
+    private javax.swing.JTextField resistancePerResistorInputA1;
+    private javax.swing.JTextField resistancePerResistorInputA2;
+    private javax.swing.JTextField resistancePerResistorInputB;
+    private javax.swing.JTextField resistancePerResistorInputB1;
+    private javax.swing.JTextField resistancePerResistorInputC;
+    private javax.swing.JTextField resistancePerResistorInputC1;
+    private javax.swing.JTextField resistancePerResistorInputD;
+    private javax.swing.JLabel resistancePerResistorTitleA;
+    private javax.swing.JLabel resistancePerResistorTitleA1;
+    private javax.swing.JLabel resistancePerResistorTitleA3;
+    private javax.swing.JLabel resistancePerResistorTitleB;
+    private javax.swing.JLabel resistancePerResistorTitleB1;
+    private javax.swing.JLabel resistancePerResistorTitleC;
+    private javax.swing.JLabel resistancePerResistorTitleC1;
+    private javax.swing.JLabel resistancePerResistorTitleD;
+    private javax.swing.JLabel resistanceTitleA;
+    private javax.swing.JLabel resistanceTitleB;
+    private javax.swing.JLabel seriesImage;
     private javax.swing.JPanel seriesInputInfo;
     private javax.swing.JLabel status;
+    private javax.swing.JTextField voltagePerBatteryInput;
+    private javax.swing.JLabel voltagePerBatteryLabel;
     // End of variables declaration//GEN-END:variables
 }
