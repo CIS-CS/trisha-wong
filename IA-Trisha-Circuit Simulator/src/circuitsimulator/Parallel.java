@@ -75,7 +75,7 @@ public class Parallel extends Circuit {
     public double getTotalResistance(){
         int a = getResistanceAtA();
         int b = getResistanceAtB();
-        double totalResistance = ((a^(-1)) + (b^(-1)))^(-1);
+        double totalResistance = (a * b) / (a + b);
         return totalResistance;
     }
     
@@ -114,6 +114,17 @@ public class Parallel extends Circuit {
         return totalCurrent;
     }
     
+    public double getVoltageAtA(){
+        double i = getCurrentAtA();
+        double r = getResistanceAtA();
+        double v = i * r;
+        return v;
+    }
+    
+    public double getVoltageAtB(){
+        
+    }
+    
     /**
      * calculate power at a using P= IV
      * 
@@ -139,4 +150,5 @@ public class Parallel extends Circuit {
         double totalPower = a + b;
         return totalPower;
     }
+    
 }

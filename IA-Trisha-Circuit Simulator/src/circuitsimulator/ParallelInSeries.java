@@ -1,4 +1,5 @@
 package circuitsimulator;
+import java.lang.Math;
 
 /**
  * parallel in series
@@ -50,39 +51,74 @@ public class ParallelInSeries extends Circuit {
     }
     
     public double getResistanceAtA(){
-        double resistanceAtA = (2 * ((numberOfResistorsAtA * resistancePerResistorAtA)^(-1)))^ (-1);
+        // ACROSS THE point only
+        double resistanceAtA = numberOfResistorsAtA * resistancePerResistorAtA;
         return resistanceAtA;
     }
     
     public double getResistanceAtC(){
-        double resistanceAtC = (2 * ((numberOfResistorsAtC * resistancePerResistorAtC)^(-1)))^ (-1);
+        // ACROSS The point only
+        double resistanceAtC = numberOfResistorsAtC * resistancePerResistorAtC;
         return resistanceAtC;
     }
     
     public double getTotalResistance(){
         double a = getResistanceAtA();
         double c = getResistanceAtC();
-        double tot = a + c;
+        double tot = (a * c) / (a + c);
         return tot;
-    }
-    
-    /*public double getCurrentAtA(){
-        
-    }
-    
-    public double getCurrentAtB(){
-        int v = getTotalVoltage();
-        double r = getResistanceAtA();
-        double currentAtA = v / r;
-        return currentAtA;
-    }
-    
-    public double getCurrentAtC(){
-        
+        // the resistance formula simplified
     }
     
     public double getTotalCurrent(){
-        
+        int v = getTotalVoltage();
+        double r = getResistanceAtA();
+        double tot = v / r;
+        return tot;
+    }
+    
+    public double getVoltageAtA(){
+        // ACROSS the entire loop; needs total current and total box resistance
+        double resis = getResistanceAtA();
+        double r = (Math.pow(resis, 2)) / (resis * 2);
+        double i = getTotalCurrent();
+        return r * i;
+    }
+    
+    public double getVoltageAtB(){
+        // total?
+        return 0;
+    }
+    
+    public double getVoltageAtC(){
+        // across the entire loop; itot and box resis
+        double resis = getResistanceAtC();
+        double r = (Math.pow(resis, 2)) / (resis * 2);
+        double i = getTotalCurrent();
+        return r * i;
+    }
+    
+    // this is where things get complicated...
+    public double getCurrentAtA(){
+        //requires voltage at a
+        double v = getVoltageAtA();
+        double r = getResistanceAtA();
+        double i = v / r;
+        return i;
+    }
+    
+    public double getCurrentAtB(){
+        // essentially the total current
+        double current = getTotalCurrent();
+        return current;
+    }
+    
+    public double getCurrentAtC(){
+        //requires voltage at b
+        double v = getVoltageAtC();
+        double r = getResistanceAtA();
+        double i = v / r;
+        return i; 
     }
     
     public double getPowerAtA(){
@@ -95,5 +131,5 @@ public class ParallelInSeries extends Circuit {
     
     public double getPowerAtC(){
         
-    }*/
+    }
 }
