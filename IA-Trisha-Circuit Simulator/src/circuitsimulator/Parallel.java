@@ -1,7 +1,7 @@
 package circuitsimulator;
 
 /**
- * PRALELL L? ???
+ * The parallel circuit, subclass of Circuit. 
  * @author tklw06
  */
 public class Parallel extends Circuit {
@@ -56,13 +56,11 @@ public class Parallel extends Circuit {
      * 
      */
     public int getResistanceAtA(){
-        int resistanceAtA = numberOfResistorsAtA * resistancePerResistorAtA;
-        return resistanceAtA;
+        return numberOfResistorsAtA * resistancePerResistorAtA;
     }
     
     public int getResistanceAtB(){
-        int resistanceAtB = numberOfResistorsAtB * resistancePerResistorAtB;
-        return resistanceAtB;
+        return numberOfResistorsAtB * resistancePerResistorAtB;
     }
     
     /**
@@ -75,8 +73,7 @@ public class Parallel extends Circuit {
     public double getTotalResistance(){
         int a = getResistanceAtA();
         int b = getResistanceAtB();
-        double totalResistance = (a * b) / (a + b);
-        return totalResistance;
+        return (a * b) / (a + b);
     }
     
     /**
@@ -86,10 +83,7 @@ public class Parallel extends Circuit {
      * @return 
      */
     public double getCurrentAtA(){
-        int a = getTotalVoltage();
-        int rA = getResistanceAtA();
-        double currentAtA = a / rA;
-        return currentAtA;
+        return getTotalVoltage() / getResistanceAtA();
     }
     
     /**
@@ -97,10 +91,7 @@ public class Parallel extends Circuit {
      * @return 
      */
     public double getCurrentAtB(){
-        double v = getTotalVoltage();
-        int rB = getResistanceAtB();
-        double currentAtB = v / rB;
-        return currentAtB;
+        return getTotalVoltage() / getResistanceAtB();
     }
     
     /**
@@ -108,21 +99,16 @@ public class Parallel extends Circuit {
      * @return the sum of current
      */
     public double getTotalCurrent(){
-        double a = getCurrentAtA();
-        double b = getCurrentAtB();
-        double totalCurrent = a + b;
-        return totalCurrent;
+        return getCurrentAtA() + getCurrentAtB();
     }
     
     public double getVoltageAtA(){
-        double i = getCurrentAtA();
-        double r = getResistanceAtA();
-        double v = i * r;
-        return v;
+        return getCurrentAtA() * getResistanceAtA();
     }
     
     public double getVoltageAtB(){
-        
+        // across B
+        return getCurrentAtB() * getResistanceAtB();
     }
     
     /**
@@ -149,6 +135,20 @@ public class Parallel extends Circuit {
         double b = getPowerAtB();
         double totalPower = a + b;
         return totalPower;
+    }
+    
+    /**
+     * Concatenates the fields as a string, and separates them by spaces.
+     * @return The fields as a concatenated string, separated by spaces.
+     */
+    public String getState() {
+        return UI.PARALLEL + " " +
+               Integer.toString(getBatteries()) + " " + 
+               Integer.toString(getVoltage()) + " " +
+               Integer.toString(numberOfResistorsAtA) + " " +
+               Integer.toString(resistancePerResistorAtA) + " " +
+               Integer.toString(numberOfResistorsAtB) + " " +
+               Integer.toString(resistancePerResistorAtB);
     }
     
 }

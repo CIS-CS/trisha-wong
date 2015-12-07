@@ -10,17 +10,18 @@ public class Series extends Circuit {
     private int numberOfResistorsAtA;
     private int resistancePerResistorAtA;
     
-    public Series (int numberOfBatteries, int voltagePerBattery, int resistorsAtA,
-            int resistancePerResistorAtA) throws Exception{              
+    public Series(int numberOfBatteries, 
+                  int voltagePerBattery, 
+                  int numberOfResistorsAtA,
+                  int resistancePerResistorAtA) throws Exception { 
         
-        super(numberOfBatteries, voltagePerBattery);
-        // SHOULD I MAKE THE RESISTANCE EXCEPTIONS COMMON TO ALL CIRCUITS?
+        super (numberOfBatteries, voltagePerBattery);
     
         if(numberOfResistorsAtA >= 1){
             this.numberOfResistorsAtA = numberOfResistorsAtA;
         }
         else{
-            throw new Exception("Error: You can't have a negative number of resistors!");
+            throw new Exception("Resistors should be greater than 0!");
         }
         
         //to check if resistance per resistor is valid at A
@@ -28,7 +29,7 @@ public class Series extends Circuit {
             this.resistancePerResistorAtA = resistancePerResistorAtA;
         }
         else{
-            throw new Exception("Error: One resistor with over 9000 ohms? That's ridiculous!");
+            throw new Exception("One resistor with over 9000 ohms? That's ridiculous!");
         }
         
     }
@@ -50,20 +51,32 @@ public class Series extends Circuit {
         return currentAtA;
     }
     
-    public double getTotalCurrent(){
+    public double getTotalCurrent() {
         double tot = getCurrentAtA();
         return tot;
     }
     
-    public double getPowerAtA(){
+    public double getPowerAtA() {
         double i = getTotalCurrent();
         int v = getTotalVoltage();
         double powerAtA = v * i;
         return powerAtA;
     }
     
-    public double getTotalPower(){
+    public double getTotalPower() {
         double tot = getPowerAtA();
         return tot;
+    }
+    
+    /**
+     * Concatenates the fields as a string, and separates them by spaces.
+     * @return The fields as a concatenated string, separated by spaces.
+     */
+    public String getState() {
+        return UI.SERIES + " " +
+               Integer.toString(getBatteries()) + " " + 
+               Integer.toString(getVoltage()) + " " +
+               Integer.toString(numberOfResistorsAtA) + " " +
+               Integer.toString(resistancePerResistorAtA);
     }
 }

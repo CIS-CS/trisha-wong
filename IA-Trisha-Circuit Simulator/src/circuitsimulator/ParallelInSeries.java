@@ -2,7 +2,7 @@ package circuitsimulator;
 import java.lang.Math;
 
 /**
- * parallel in series
+ * The parallel in series circuit, subclass of Circuit. 
  * @author tklw06
  */
 public class ParallelInSeries extends Circuit {
@@ -13,9 +13,10 @@ public class ParallelInSeries extends Circuit {
     private int numberOfResistorsAtC;
     private int resistancePerResistorAtC;
     
-    public ParallelInSeries(int numberOfBatteries, int voltagePerBattery, int 
+    public ParallelInSeries(int numberOfBatteries, 
+                            int voltagePerBattery, int 
             numberOfResistorsAtA, int resistancePerResistorAtA, int numberOfResistorsAtC,
-            int resistancePerResistorAt) throws Exception{
+            int resistancePerResistorAtC) throws Exception{
             
             super(numberOfBatteries, voltagePerBattery);
     
@@ -41,7 +42,7 @@ public class ParallelInSeries extends Circuit {
             throw new Exception("Error: One resistor with over 9000 ohms? That's ridiculous!");
         }
         //at c
-                //at c
+                
         if(resistancePerResistorAtC >= 1 && resistancePerResistorAtC <= 9000){
             this.resistancePerResistorAtC = resistancePerResistorAtC;
         }
@@ -52,84 +53,87 @@ public class ParallelInSeries extends Circuit {
     
     public double getResistanceAtA(){
         // ACROSS THE point only
-        double resistanceAtA = numberOfResistorsAtA * resistancePerResistorAtA;
-        return resistanceAtA;
+        return numberOfResistorsAtA * resistancePerResistorAtA;
     }
     
     public double getResistanceAtC(){
         // ACROSS The point only
-        double resistanceAtC = numberOfResistorsAtC * resistancePerResistorAtC;
-        return resistanceAtC;
+        return numberOfResistorsAtC * resistancePerResistorAtC;
     }
     
     public double getTotalResistance(){
         double a = getResistanceAtA();
         double c = getResistanceAtC();
-        double tot = (a * c) / (a + c);
-        return tot;
+        return (a * c) / (a + c);
         // the resistance formula simplified
     }
     
     public double getTotalCurrent(){
-        int v = getTotalVoltage();
-        double r = getResistanceAtA();
-        double tot = v / r;
-        return tot;
+        return getTotalVoltage() / getResistanceAtA();
     }
     
     public double getVoltageAtA(){
         // ACROSS the entire loop; needs total current and total box resistance
         double resis = getResistanceAtA();
         double r = (Math.pow(resis, 2)) / (resis * 2);
-        double i = getTotalCurrent();
-        return r * i;
+        return getTotalCurrent() * r;
     }
     
     public double getVoltageAtB(){
-        // total?
-        return 0;
+        // total? across BOTH loops?
+        return getTotalResistance();
     }
     
     public double getVoltageAtC(){
         // across the entire loop; itot and box resis
         double resis = getResistanceAtC();
         double r = (Math.pow(resis, 2)) / (resis * 2);
-        double i = getTotalCurrent();
-        return r * i;
+        return r * getTotalCurrent();
     }
     
     // this is where things get complicated...
     public double getCurrentAtA(){
         //requires voltage at a
-        double v = getVoltageAtA();
-        double r = getResistanceAtA();
-        double i = v / r;
-        return i;
+        return getVoltageAtA() / getResistanceAtA();
     }
     
     public double getCurrentAtB(){
         // essentially the total current
-        double current = getTotalCurrent();
-        return current;
+        return getTotalCurrent();
     }
     
     public double getCurrentAtC(){
-        //requires voltage at b
-        double v = getVoltageAtC();
-        double r = getResistanceAtA();
-        double i = v / r;
-        return i; 
+        //requires voltage at ??
+        return getVoltageAtC() / getResistanceAtA(); 
     }
     
     public double getPowerAtA(){
-        
+        return getCurrentAtA() * getVoltageAtA();
     }
     
     public double getPowerAtB(){
-        
+        return 0; // ?
     }
     
     public double getPowerAtC(){
-        
+        return getCurrentAtC() * getVoltageAtC();
+    }
+    
+    public double getTotalPower(){
+        return getPowerAtA() + getPowerAtC();
+    }
+    
+    /**
+     * Concatenates the fields as a string, and separates them by spaces.
+     * @return The fields as a concatenated string, separated by spaces.
+     */
+    public String getState() {
+        return UI.PARALLEL_IN_SERIES + " " +
+               Integer.toString(getBatteries()) + " " + 
+               Integer.toString(getVoltage()) + " " +
+               Integer.toString(numberOfResistorsAtA) + " " +
+               Integer.toString(resistancePerResistorAtA) + " " +
+               Integer.toString(numberOfResistorsAtC) + " " +
+               Integer.toString(resistancePerResistorAtC);
     }
 }

@@ -3,7 +3,7 @@ package circuitsimulator;
  * IN WHICH i define circuit object
  * @author tklw06
  */
-public class Circuit {
+public abstract class Circuit {
     
     private int numberOfBatteries;
     private int voltagePerBattery;
@@ -32,18 +32,6 @@ public class Circuit {
             throw new Exception("Error: Please choose a positive, reasonable emf"
                     + "per battery! This is meant to be a realistic simulator!");
         }
-        
-        //no negative batteries
-        /*int i = numberOfBatteries * voltagePerBattery;
-        
-        if ((i >= 1) && (i <= 1000)){ 
-            this.numberOfBatteries = numberOfBatteries;
-            this.voltagePerBattery = voltagePerBattery;
-        }
-        else{
-            throw new Exception("Error: Total voltage must be 1-1000. Voltage calculated: " +
-                    i);
-        }*/
     }
     
     /**
@@ -56,5 +44,18 @@ public class Circuit {
         //must be greater than 0 and less than thousand
         int totalVoltage = numberOfBatteries * voltagePerBattery;
         return totalVoltage;
+    }
+    
+    /**
+    * ABSTRACT ? ?? METHOD?????? 
+    */
+    public abstract String getState();
+    
+    public int getBatteries(){
+        return numberOfBatteries;
+    }
+    
+    public int getVoltage(){
+        return voltagePerBattery;
     }
 }
