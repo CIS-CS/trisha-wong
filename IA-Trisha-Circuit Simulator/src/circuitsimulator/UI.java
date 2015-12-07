@@ -58,6 +58,29 @@ public class UI extends javax.swing.JFrame {
         voltagePerBatteryLabel = new javax.swing.JLabel();
         numberOfBatteriesInput = new javax.swing.JTextField();
         voltagePerBatteryInput = new javax.swing.JTextField();
+        seriesInputInfo = new javax.swing.JPanel();
+        numberOfResistorsAtATitle = new javax.swing.JLabel();
+        resistancePerResistorATitle = new javax.swing.JLabel();
+        rPerRInputASeries = new javax.swing.JTextField();
+        noOfRInputASeries = new javax.swing.JTextField();
+        parallelInSeriesInputInfo = new javax.swing.JPanel();
+        numberOfResistorsTitleA1 = new javax.swing.JLabel();
+        resistancePerResistorTitleA1 = new javax.swing.JLabel();
+        rPerRInputAParallelInSeries = new javax.swing.JTextField();
+        noOfRInputAParallelInSeries = new javax.swing.JTextField();
+        numberOfResistorsTitleC = new javax.swing.JLabel();
+        resistancePerResistorTitleC = new javax.swing.JLabel();
+        noOfRInputCParallelInSeries = new javax.swing.JTextField();
+        rPerRInputCParallelInSeries = new javax.swing.JTextField();
+        parallelInputInfo = new javax.swing.JPanel();
+        numberOfResistorsTitleA = new javax.swing.JLabel();
+        resistancePerResistorTitleA = new javax.swing.JLabel();
+        rPerRInputAParallel = new javax.swing.JTextField();
+        noOfRInputAParallel = new javax.swing.JTextField();
+        numberOfResistorsTitleB = new javax.swing.JLabel();
+        resistancePerResistorTitleB = new javax.swing.JLabel();
+        noOfRInputBParallel = new javax.swing.JTextField();
+        rPerRInputBParallel = new javax.swing.JTextField();
         multiLoopInputInfo = new javax.swing.JPanel();
         numberOfResistorsTitleA2 = new javax.swing.JLabel();
         resistancePerResistorTitleA3 = new javax.swing.JLabel();
@@ -75,29 +98,6 @@ public class UI extends javax.swing.JFrame {
         resistancePerResistorTitleD = new javax.swing.JLabel();
         noOfRInputDMultiLoop = new javax.swing.JTextField();
         rPerRInputDMultiLoop = new javax.swing.JTextField();
-        seriesInputInfo = new javax.swing.JPanel();
-        numberOfResistorsAtATitle = new javax.swing.JLabel();
-        resistancePerResistorATitle = new javax.swing.JLabel();
-        rPerRInputASeries = new javax.swing.JTextField();
-        noOfRInputASeries = new javax.swing.JTextField();
-        parallelInputInfo = new javax.swing.JPanel();
-        numberOfResistorsTitleA = new javax.swing.JLabel();
-        resistancePerResistorTitleA = new javax.swing.JLabel();
-        rPerRInputAParallel = new javax.swing.JTextField();
-        noOfRInputAParallel = new javax.swing.JTextField();
-        numberOfResistorsTitleB = new javax.swing.JLabel();
-        resistancePerResistorTitleB = new javax.swing.JLabel();
-        noOfRInputBParallel = new javax.swing.JTextField();
-        rPerRInputBParallel = new javax.swing.JTextField();
-        parallelInSeriesInputInfo = new javax.swing.JPanel();
-        numberOfResistorsTitleA1 = new javax.swing.JLabel();
-        resistancePerResistorTitleA1 = new javax.swing.JLabel();
-        rPerRInputAParallelInSeries = new javax.swing.JTextField();
-        noOfRInputAParallelInSeries = new javax.swing.JTextField();
-        numberOfResistorsTitleC = new javax.swing.JLabel();
-        resistancePerResistorTitleC = new javax.swing.JLabel();
-        noOfRInputCParallelInSeries = new javax.swing.JTextField();
-        rPerRInputCParallelInSeries = new javax.swing.JTextField();
         CircuitSelectorPanel = new javax.swing.JPanel();
         circuitMenu = new javax.swing.JComboBox();
         runButton = new javax.swing.JButton();
@@ -196,6 +196,88 @@ public class UI extends javax.swing.JFrame {
         voltagePerBatteryInput.setToolTipText("Please fill in this field.");
         inputWindow.add(voltagePerBatteryInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, 50, 20));
 
+        seriesInputInfo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        numberOfResistorsAtATitle.setText("Number of resistors: ");
+        seriesInputInfo.add(numberOfResistorsAtATitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 172, -1));
+
+        resistancePerResistorATitle.setText("Resistance per resistor: ");
+        seriesInputInfo.add(resistancePerResistorATitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 32, 163, -1));
+
+        rPerRInputASeries.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        rPerRInputASeries.setToolTipText("Please fill in this field.");
+        seriesInputInfo.add(rPerRInputASeries, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 50, 20));
+
+        noOfRInputASeries.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        noOfRInputASeries.setToolTipText("Please fill in this field.");
+        seriesInputInfo.add(noOfRInputASeries, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 50, 20));
+
+        inputWindow.add(seriesInputInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 340, 220));
+
+        parallelInSeriesInputInfo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        numberOfResistorsTitleA1.setText("Number of resistors (A):");
+        parallelInSeriesInputInfo.add(numberOfResistorsTitleA1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 172, -1));
+
+        resistancePerResistorTitleA1.setText("Resistance per resistor (A): ");
+        parallelInSeriesInputInfo.add(resistancePerResistorTitleA1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 32, 180, -1));
+
+        rPerRInputAParallelInSeries.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        rPerRInputAParallelInSeries.setToolTipText("Please fill in this field.");
+        parallelInSeriesInputInfo.add(rPerRInputAParallelInSeries, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 50, 20));
+
+        noOfRInputAParallelInSeries.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        noOfRInputAParallelInSeries.setToolTipText("Please fill in this field.");
+        parallelInSeriesInputInfo.add(noOfRInputAParallelInSeries, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 50, 20));
+
+        numberOfResistorsTitleC.setText("Number of resistors (C):");
+        parallelInSeriesInputInfo.add(numberOfResistorsTitleC, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 172, -1));
+
+        resistancePerResistorTitleC.setText("Resistance per resistor (C): ");
+        parallelInSeriesInputInfo.add(resistancePerResistorTitleC, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 180, -1));
+
+        noOfRInputCParallelInSeries.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        noOfRInputCParallelInSeries.setToolTipText("Please fill in this field.");
+        parallelInSeriesInputInfo.add(noOfRInputCParallelInSeries, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 50, 20));
+
+        rPerRInputCParallelInSeries.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        rPerRInputCParallelInSeries.setToolTipText("Please fill in this field.");
+        parallelInSeriesInputInfo.add(rPerRInputCParallelInSeries, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 50, 20));
+
+        inputWindow.add(parallelInSeriesInputInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 340, 220));
+
+        parallelInputInfo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        numberOfResistorsTitleA.setText("Number of resistors (A):");
+        parallelInputInfo.add(numberOfResistorsTitleA, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 172, -1));
+
+        resistancePerResistorTitleA.setText("Resistance per resistor (A): ");
+        parallelInputInfo.add(resistancePerResistorTitleA, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 32, 180, -1));
+
+        rPerRInputAParallel.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        rPerRInputAParallel.setToolTipText("Please fill in this field.");
+        parallelInputInfo.add(rPerRInputAParallel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 50, 20));
+
+        noOfRInputAParallel.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        noOfRInputAParallel.setToolTipText("Please fill in this field.");
+        parallelInputInfo.add(noOfRInputAParallel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 50, 20));
+
+        numberOfResistorsTitleB.setText("Number of resistors (B):");
+        parallelInputInfo.add(numberOfResistorsTitleB, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 172, -1));
+
+        resistancePerResistorTitleB.setText("Resistance per resistor (B): ");
+        parallelInputInfo.add(resistancePerResistorTitleB, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 180, -1));
+
+        noOfRInputBParallel.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        noOfRInputBParallel.setToolTipText("Please fill in this field.");
+        parallelInputInfo.add(noOfRInputBParallel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 50, 20));
+
+        rPerRInputBParallel.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        rPerRInputBParallel.setToolTipText("Please fill in this field.");
+        parallelInputInfo.add(rPerRInputBParallel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 50, 20));
+
+        inputWindow.add(parallelInputInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 340, 220));
+
         multiLoopInputInfo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         numberOfResistorsTitleA2.setText("Number of resistors (A):");
@@ -255,88 +337,6 @@ public class UI extends javax.swing.JFrame {
         multiLoopInputInfo.add(rPerRInputDMultiLoop, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 50, 20));
 
         inputWindow.add(multiLoopInputInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 340, 220));
-
-        seriesInputInfo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        numberOfResistorsAtATitle.setText("Number of resistors: ");
-        seriesInputInfo.add(numberOfResistorsAtATitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 172, -1));
-
-        resistancePerResistorATitle.setText("Resistance per resistor: ");
-        seriesInputInfo.add(resistancePerResistorATitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 32, 163, -1));
-
-        rPerRInputASeries.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
-        rPerRInputASeries.setText("jTextField7");
-        seriesInputInfo.add(rPerRInputASeries, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 50, 20));
-
-        noOfRInputASeries.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
-        noOfRInputASeries.setText("jTextField7");
-        seriesInputInfo.add(noOfRInputASeries, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 50, 20));
-
-        inputWindow.add(seriesInputInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 340, 220));
-
-        parallelInputInfo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        numberOfResistorsTitleA.setText("Number of resistors (A):");
-        parallelInputInfo.add(numberOfResistorsTitleA, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 172, -1));
-
-        resistancePerResistorTitleA.setText("Resistance per resistor (A): ");
-        parallelInputInfo.add(resistancePerResistorTitleA, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 32, 180, -1));
-
-        rPerRInputAParallel.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
-        rPerRInputAParallel.setText("jTextField7");
-        parallelInputInfo.add(rPerRInputAParallel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 50, 20));
-
-        noOfRInputAParallel.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
-        noOfRInputAParallel.setText("jTextField7");
-        parallelInputInfo.add(noOfRInputAParallel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 50, 20));
-
-        numberOfResistorsTitleB.setText("Number of resistors (B):");
-        parallelInputInfo.add(numberOfResistorsTitleB, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 172, -1));
-
-        resistancePerResistorTitleB.setText("Resistance per resistor (B): ");
-        parallelInputInfo.add(resistancePerResistorTitleB, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 180, -1));
-
-        noOfRInputBParallel.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
-        noOfRInputBParallel.setText("jTextField7");
-        parallelInputInfo.add(noOfRInputBParallel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 50, 20));
-
-        rPerRInputBParallel.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
-        rPerRInputBParallel.setText("jTextField7");
-        parallelInputInfo.add(rPerRInputBParallel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 50, 20));
-
-        inputWindow.add(parallelInputInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 340, 220));
-
-        parallelInSeriesInputInfo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        numberOfResistorsTitleA1.setText("Number of resistors (A):");
-        parallelInSeriesInputInfo.add(numberOfResistorsTitleA1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 172, -1));
-
-        resistancePerResistorTitleA1.setText("Resistance per resistor (A): ");
-        parallelInSeriesInputInfo.add(resistancePerResistorTitleA1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 32, 180, -1));
-
-        rPerRInputAParallelInSeries.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
-        rPerRInputAParallelInSeries.setText("jTextField7");
-        parallelInSeriesInputInfo.add(rPerRInputAParallelInSeries, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 50, 20));
-
-        noOfRInputAParallelInSeries.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
-        noOfRInputAParallelInSeries.setText("jTextField7");
-        parallelInSeriesInputInfo.add(noOfRInputAParallelInSeries, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 50, 20));
-
-        numberOfResistorsTitleC.setText("Number of resistors (C):");
-        parallelInSeriesInputInfo.add(numberOfResistorsTitleC, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 172, -1));
-
-        resistancePerResistorTitleC.setText("Resistance per resistor (C): ");
-        parallelInSeriesInputInfo.add(resistancePerResistorTitleC, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 180, -1));
-
-        noOfRInputCParallelInSeries.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
-        noOfRInputCParallelInSeries.setText("jTextField7");
-        parallelInSeriesInputInfo.add(noOfRInputCParallelInSeries, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 60, 50, 20));
-
-        rPerRInputCParallelInSeries.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
-        rPerRInputCParallelInSeries.setText("jTextField7");
-        parallelInSeriesInputInfo.add(rPerRInputCParallelInSeries, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 50, 20));
-
-        inputWindow.add(parallelInSeriesInputInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 340, 220));
 
         mainWindow.add(inputWindow, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, 380, 290));
 
@@ -887,7 +887,7 @@ public class UI extends javax.swing.JFrame {
         
         //clear input text fields
         
-        Circuit c = cb.getBucket()[UI.PARALLEL];
+        Circuit c = cb.getBucket()[UI.PARALLEL_IN_SERIES];
         if(c != null) {
             String state = c.getState();
             String[] stateArray = state.split(" ");
@@ -922,7 +922,7 @@ public class UI extends javax.swing.JFrame {
         multiLoopInputInfo.setVisible(true);
         
         //clear input text fields
-        Circuit c = cb.getBucket()[UI.SERIES];
+        Circuit c = cb.getBucket()[UI.MULTI_LOOP];
         if(c != null) {
             String state = c.getState();
             String[] stateArray = state.split(" ");
