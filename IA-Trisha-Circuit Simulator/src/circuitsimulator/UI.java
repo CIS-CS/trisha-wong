@@ -824,10 +824,10 @@ public class UI extends javax.swing.JFrame {
         if(c != null) {
             String state = c.getState();
             String[] stateArray = state.split(" ");
-            numberOfBatteriesInput.setText(stateArray[0]);
-            voltagePerBatteryInput.setText(stateArray[1]);
-            rPerRInputASeries.setText(stateArray[2]);
-            noOfRInputASeries.setText(stateArray[3]);
+            numberOfBatteriesInput.setText(stateArray[1]);
+            voltagePerBatteryInput.setText(stateArray[2]);
+            rPerRInputASeries.setText(stateArray[3]);
+            noOfRInputASeries.setText(stateArray[4]);
         }
         else {
             numberOfBatteriesInput.setText("");
@@ -851,16 +851,16 @@ public class UI extends javax.swing.JFrame {
         multiLoopInputInfo.setVisible(false);
         
         // clear input text fields
-        Circuit c = cb.getBucket()[UI.SERIES];
+        Circuit c = cb.getBucket()[UI.PARALLEL];
         if(c != null) {
             String state = c.getState();
             String[] stateArray = state.split(" ");
-            numberOfBatteriesInput.setText(stateArray[0]);
-            voltagePerBatteryInput.setText(stateArray[1]);
-            rPerRInputASeries.setText(stateArray[2]);
-            noOfRInputASeries.setText(stateArray[3]);
-            //rPerRInputBSeries.setText(stateArray[2]);
-            //noOfRInputBSeries.setText(stateArray[3]);
+            numberOfBatteriesInput.setText(stateArray[1]);
+            voltagePerBatteryInput.setText(stateArray[2]);
+            rPerRInputAParallel.setText(stateArray[3]);
+            noOfRInputAParallel.setText(stateArray[4]);
+            rPerRInputBParallel.setText(stateArray[5]);
+            noOfRInputBParallel.setText(stateArray[6]);
         }
         else {
             numberOfBatteriesInput.setText("");
@@ -886,12 +886,26 @@ public class UI extends javax.swing.JFrame {
         multiLoopInputInfo.setVisible(false);
         
         //clear input text fields
-        numberOfBatteriesInput.setText("");
-        voltagePerBatteryInput.setText("");
-        noOfRInputAParallelInSeries.setText("");
-        rPerRInputAParallelInSeries.setText("");
-        noOfRInputCParallelInSeries.setText("");
-        rPerRInputCParallelInSeries.setText("");
+        
+        Circuit c = cb.getBucket()[UI.PARALLEL];
+        if(c != null) {
+            String state = c.getState();
+            String[] stateArray = state.split(" ");
+            numberOfBatteriesInput.setText(stateArray[1]);
+            voltagePerBatteryInput.setText(stateArray[2]);
+            rPerRInputAParallelInSeries.setText(stateArray[3]);
+            noOfRInputAParallelInSeries.setText(stateArray[4]);
+            rPerRInputCParallelInSeries.setText(stateArray[5]);
+            noOfRInputCParallelInSeries.setText(stateArray[6]);
+        }
+        else {
+            numberOfBatteriesInput.setText("");
+            voltagePerBatteryInput.setText("");
+            noOfRInputAParallelInSeries.setText("");
+            rPerRInputAParallelInSeries.setText("");
+            noOfRInputCParallelInSeries.setText("");
+            rPerRInputCParallelInSeries.setText("");
+        }
     }
     
     private void initMultiLoopDisplay() {
@@ -908,16 +922,33 @@ public class UI extends javax.swing.JFrame {
         multiLoopInputInfo.setVisible(true);
         
         //clear input text fields
-        numberOfBatteriesInput.setText("");
-        voltagePerBatteryInput.setText("");
-        noOfRInputAMultiLoop.setText("");
-        rPerRInputAMultiLoop.setText("");
-        noOfRInputBMultiLoop.setText("");
-        rPerRInputBMultiLoop.setText("");
-        noOfRInputCMultiLoop.setText("");
-        rPerRInputCMultiLoop.setText("");
-        noOfRInputDMultiLoop.setText("");
-        rPerRInputDMultiLoop.setText("");
+        Circuit c = cb.getBucket()[UI.SERIES];
+        if(c != null) {
+            String state = c.getState();
+            String[] stateArray = state.split(" ");
+            numberOfBatteriesInput.setText(stateArray[1]);
+            voltagePerBatteryInput.setText(stateArray[2]);
+            rPerRInputAMultiLoop.setText(stateArray[3]);
+            noOfRInputAMultiLoop.setText(stateArray[4]);
+            rPerRInputBMultiLoop.setText(stateArray[5]);
+            noOfRInputBMultiLoop.setText(stateArray[6]);
+            rPerRInputCMultiLoop.setText(stateArray[7]);
+            noOfRInputCMultiLoop.setText(stateArray[8]);
+            rPerRInputDMultiLoop.setText(stateArray[9]);
+            noOfRInputDMultiLoop.setText(stateArray[10]);
+        }
+        else {
+            numberOfBatteriesInput.setText("");
+            voltagePerBatteryInput.setText("");
+            noOfRInputAMultiLoop.setText("");
+            rPerRInputAMultiLoop.setText("");
+            noOfRInputBMultiLoop.setText("");
+            rPerRInputBMultiLoop.setText("");
+            noOfRInputCMultiLoop.setText("");
+            rPerRInputCMultiLoop.setText("");
+            noOfRInputDMultiLoop.setText("");
+            rPerRInputDMultiLoop.setText("");
+        }
     }
     
     private void shutItDown(){
