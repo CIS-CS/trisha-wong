@@ -29,5 +29,4 @@ public class CircuitBucket {
         return bucket;
     }
     // loose coupling
-    
 }

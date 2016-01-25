@@ -23,35 +23,28 @@ public class Persistor {
     private BufferedReader bufferedReader;
 
     public Persistor() {
-        filename = "save.txt";   
+        filename = "save.txt";
         fileWriter = null;                
         printWriter = null;
         fileReader = null;                
         bufferedReader = null;  
     }
     
-    public void initiate() throws IOException {
-        String errorMessage = "Persistor error: ";
+    public void write(CircuitBucket bucket) throws FileNotFoundException, IOException {
+        
+        Circuit[] bucketArray = bucket.getBucket();
+        Circuit c = null;
         
         try{
             fileWriter = new FileWriter(filename);
             printWriter = new PrintWriter(fileWriter);
-                    
-            fileReader = new FileReader(filename);
-            bufferedReader = new BufferedReader(fileReader);
         }
         catch(FileNotFoundException e) {
-            throw new FileNotFoundException(errorMessage + e);
+            throw new FileNotFoundException("Error with file: " + e);
         }
         catch(IOException e){
-            throw new IOException(errorMessage + e);
+            throw new IOException("Error with file: " + e);
         }
-    }
-    
-    public void write(CircuitBucket bucket){
-        
-        Circuit[] bucketArray = bucket.getBucket();
-        Circuit c = null;
         
         for(int i = 0; i < bucketArray.length; i++){
             c = bucketArray[i];
@@ -61,7 +54,7 @@ public class Persistor {
         }
     }
     
-    public Circuit read(CircuitBucket cb) throws IOException, Exception{
+    public Circuit read(CircuitBucket cb) throws IOException, Exception {
         String lastState = null;
         Circuit c = null;
         
@@ -77,6 +70,9 @@ public class Persistor {
         int resistanceD = 0;
         
         try {
+            fileReader = new FileReader(filename);
+            bufferedReader = new BufferedReader(fileReader);
+            
             lastState = bufferedReader.readLine();
             
             while (lastState != null) {
@@ -127,6 +123,9 @@ public class Persistor {
                 }
             }
         
+        catch(FileNotFoundException e) {
+            throw new FileNotFoundException("Error with file: " + e);
+        }
         catch(IOException e) {
             throw new IOException("Error with file: " + e);
         }

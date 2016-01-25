@@ -47,7 +47,7 @@ public abstract class Circuit {
     }
     
     /**
-    * ABSTRACT ? ?? METHOD?????? 
+    * 
     */
     public abstract String getState();
     

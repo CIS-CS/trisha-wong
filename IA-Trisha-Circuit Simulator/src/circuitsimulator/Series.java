@@ -45,8 +45,8 @@ public class Series extends Circuit {
     }
     
     public double getCurrentAtA(){
-        int v = getTotalVoltage();
-        int r = getTotalResistance();
+        double v = getTotalVoltage();
+        double r = getTotalResistance();
         double currentAtA = v / r;
         return currentAtA;
     }
@@ -58,7 +58,7 @@ public class Series extends Circuit {
     
     public double getPowerAtA() {
         double i = getTotalCurrent();
-        int v = getTotalVoltage();
+        double v = getTotalVoltage();
         double powerAtA = v * i;
         return powerAtA;
     }

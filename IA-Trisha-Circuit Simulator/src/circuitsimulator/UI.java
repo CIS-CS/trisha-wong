@@ -25,9 +25,11 @@ public class UI extends javax.swing.JFrame {
     public UI() {
         initComponents();
         clearImage();
+        
+        //if()
         Persistor pers = new Persistor();
+        
         try {
-            pers.initiate();
             pers.read(cb);
         }
         catch (IOException e){
@@ -783,7 +785,7 @@ public class UI extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowClosing
 
     private void aboutThisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aboutThisActionPerformed
-        String message = "Welcome to Circuit Simulator 2011! :^)\n\n" + 
+        String message = "Welcome to Circuit Simulator 2015! :^)\n\n" + 
                 "As the title suggests, this program simulates a series of circuits, including\n" +
                 "the classic series and parallel circuits, as well as two special circuits, \n" +
                 "parallel in series and a multiloop circuit. \n" +
@@ -964,15 +966,14 @@ public class UI extends javax.swing.JFrame {
             
             Persistor pers = new Persistor();
 
-                try{
-                    pers.initiate();
-                    pers.write(cb);
-                    pers.close();
-                }
-                
-                catch(IOException e){
-                    System.out.println("\n*** " + e.getMessage() + "\n"); //what is this even doing?
-                }
+            try{
+                pers.write(cb);
+                pers.close();
+            }
+            catch(IOException e){
+                JOptionPane.showMessageDialog(null, e.getMessage(), "Error", 
+                JOptionPane.ERROR_MESSAGE);
+            }
             
             System.exit(0);
         }
